@@ -6,3 +6,6 @@ description      'Installs/Configures burp'
 long_description 'Installs/Configures burp'
 version          '0.1.0'
 
+depends 'apt'
+depends 'build-essential'
+depends 'git'
