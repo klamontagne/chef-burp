@@ -1,0 +1,25 @@
+description     "BURP server"
+author          "Kevin Lamontagne <kevin@demarque.com>"
+
+start on runlevel [2345]
+stop on starting rc RUNLEVEL=[016]
+
+respawn
+respawn limit unlimited
+
+umask 007
+
+kill timeout 30
+
+console log
+
+setuid burp
+chdir /var/spool/burp
+
+pre-start script
+  install -d -o burp -g root --mode=0775 /var/run/burp
+end script
+
+exec /usr/sbin/burp -F -c /etc/burp-server/burp.conf
+
+post-stop exec sleep 5

@@ -3,6 +3,7 @@ port = 4971
 status_port = 4972
 directory = /var/spool/burp
 clientconfdir = /etc/burp-server/clientconfdir
+dedup_group = global
 pidfile = /var/run/burp/server.pid
 hardlinked_archive = 0
 working_dir_recovery_method = delete
@@ -26,8 +27,9 @@ keep = 8
 keep = 4
 keep = 6
 
-user=burp
-group=burp
+# Managed by Upstart.
+# user=burp
+# group=burp
 
 ca_conf = /etc/burp-server/crypto/CA.cnf
 ca_name = burpCA
