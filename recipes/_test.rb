@@ -12,10 +12,13 @@ end
 burp_client 'testclient' do
   server '127.0.0.1'
   password 'abcdefgh'
-  includes ['/var/backups']
 end
 
 execute 'test burp client' do
   command '/usr/sbin/burp -a l -c /etc/burp/burp.conf'
   action :run
+end
+
+file '/var/backups/hello' do
+  content 'hello'
 end

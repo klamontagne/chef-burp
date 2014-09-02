@@ -5,7 +5,7 @@ end
 use_inline_resources
 
 action :create do
-  t = template '/etc/burp/burp.conf' do
+  template '/etc/burp/burp.conf' do
     source 'client/burp.conf.erb'
     owner 'root'
     group 'root'
@@ -17,9 +17,4 @@ action :create do
     )
     mode 0644
   end
-  new_resource.updated_by_last_action(t.updated_by_last_action?)
 end
-
-# def test()
-#   # some Ruby code
-# end
