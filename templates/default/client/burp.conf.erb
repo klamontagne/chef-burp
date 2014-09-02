@@ -22,6 +22,9 @@ ssl_key = /etc/burp/crypto/ssl_cert-client.key
 ssl_key_password = password
 ssl_peer_cn = burpserver
 
+backup_script_pre=/etc/burp/pre.sh
+backup_script_post=/etc/burp/post.sh
+
 # rsync's --skip-compress default extensions
 exclude_comp=7z
 exclude_comp=avi
