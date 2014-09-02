@@ -18,7 +18,7 @@ end
   execute "install burp #{s}" do
     cwd "#{Chef::Config[:file_cache_path]}/burp"
     command "install --mode=0755 -o root -g root ./configs/server/#{s} /etc/burp-server/"
-    not_if { File.exist? "/etc/burp-server/#{s}" }
+    not_if { ::File.exist? "/etc/burp-server/#{s}" }
   end
 end
 
@@ -72,7 +72,7 @@ execute 'generate burp server certificates' do
   user 'burp'
   group 'burp'
   command '/usr/sbin/burp -F -c /etc/burp-server/burp.conf -g'
-  not_if { File.exist? '/etc/burp-server/crypto/CA/burpserver.key' }
+  not_if { ::File.exist? '/etc/burp-server/crypto/CA/burpserver.key' }
 end
 
 service 'burp-server' do
