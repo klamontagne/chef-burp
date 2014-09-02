@@ -19,7 +19,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.run_list = [
       'recipe[apt]',
       'recipe[build-essential]',
-      'recipe[burp::server]'
+      'recipe[burp::_test]'
     ]
   end
 end

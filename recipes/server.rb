@@ -10,7 +10,25 @@ directory '/etc/burp-server' do
   mode 0750
 end
 
+%w(
+  notify_script
+  timer_script
+  summary_script
+).each do |s|
+  execute "install burp #{s}" do
+    cwd "#{Chef::Config[:file_cache_path]}/burp"
+    command "install --mode=0755 -o root -g root ./configs/server/#{s} /etc/burp-server/"
+    not_if { File.exist? "/etc/burp-server/#{s}" }
+  end
+end
+
 directory '/etc/burp-server/crypto' do
+  owner 'burp'
+  group 'root'
+  mode 0750
+end
+
+directory '/etc/burp-server/clientconfdir' do
   owner 'burp'
   group 'root'
   mode 0750

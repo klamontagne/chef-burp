@@ -1,0 +1,48 @@
+mode = client
+port = 4971
+server = <%= @server %>
+password = <%= @password %>
+cname = <%= @cname %>
+pidfile = /var/run/burp.client.pid
+syslog = 0
+stdout = 1
+progress_counter = 0
+# ratelimit = 1.5
+network_timeout = 7200
+server_can_restore = 0
+
+cross_all_filesystems=0
+
+ca_burp_ca = /usr/sbin/burp_ca
+ca_csr_dir = /etc/burp/crypto
+ssl_cert_ca = /etc/burp/crypto/ssl_cert_ca.pem
+ssl_cert = /etc/burp/crypto/ssl_cert-client.pem
+ssl_key = /etc/burp/crypto/ssl_cert-client.key
+#ssl_ciphers = 
+ssl_key_password = password
+ssl_peer_cn = burpserver
+
+# rsync's --skip-compress default extensions
+exclude_comp=7z
+exclude_comp=avi
+exclude_comp=bz2
+exclude_comp=deb
+exclude_comp=gz
+exclude_comp=iso
+exclude_comp=jpeg
+exclude_comp=jpg
+exclude_comp=mov
+exclude_comp=mp3
+exclude_comp=mp4
+exclude_comp=ogg
+exclude_comp=rpm
+exclude_comp=tbz
+exclude_comp=tgz
+exclude_comp=z
+exclude_comp=zip
+
+atime=1
+
+<% @includes.each do |i| -%>
+include = <%= i %>
+<% end -%>
