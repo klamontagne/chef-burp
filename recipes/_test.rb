@@ -1,6 +1,6 @@
 
 include_recipe 'burp::server'
-include_recipe 'burp::client'
+include_recipe 'burp::common'
 
 file '/etc/burp-server/clientconfdir/testclient' do
   content 'password = abcdefgh'
@@ -14,11 +14,16 @@ burp_client 'testclient' do
   password 'abcdefgh'
 end
 
+burp_include '/var/backups'
+burp_exclude '/var/nobackups'
+burp_exclude_regex '.*/bundle/.*'
+
+file '/var/backups/hello' do
+  content 'hello'
+end
+
 execute 'test burp client' do
   command '/usr/sbin/burp -a l -c /etc/burp/burp.conf'
   action :run
 end
 
-file '/var/backups/hello' do
-  content 'hello'
-end

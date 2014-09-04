@@ -46,4 +46,14 @@ exclude_comp=zip
 
 atime=1
 
-. /etc/burp/conf.d/*
+<% @includes.each_value do |i| -%>
+include = <%= i %>
+<% end -%>
+
+<% @excludes.each_value do |e| -%>
+exclude = <%= e %>
+<% end -%>
+
+<% @excludes_regex.each_value do |er| -%>
+exclude_regex = <%= er %>
+<% end -%>
