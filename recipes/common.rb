@@ -1,6 +1,7 @@
 
 include_recipe 'apt'
 include_recipe 'build-essential'
+include_recipe 'git'
 
 package 'librsync-dev'
 package 'libz-dev'

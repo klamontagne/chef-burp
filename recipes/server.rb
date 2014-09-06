@@ -80,3 +80,36 @@ service 'burp-server' do
   supports status: true, restart: true, reload: false
   action :start
 end
+
+# Search for clients
+# partial_search requires:
+# - Chef Server >= 11.0.4
+# - Chef Client >= 11.10.0 or the partial_search cookbook
+if Chef::Config[:solo]
+  Chef::Log.info('Not searching for clients under chef-solo')
+  clients = {}
+else
+  query =  'recipes:burp\:\:client AND '
+  query += "burp_server:#{node['burp']['servername']} "
+  if node['burp']['restrict_search_environment']
+    query += "AND chef_environment:#{node.chef_environment}"
+  end
+
+  clients = partial_search(
+    :node,
+    query,
+    keys: {
+      'name' => %w(fqdn),
+      'password' => %w(burp password)
+    }
+  )
+end
+
+clients.each do |client|
+  file "/etc/burp-server/clientconfdir/#{client['name']}" do
+    owner 'burp'
+    group 'burp'
+    mode 0640
+    content "password=#{client['password']}\ndedup_group=#{client['name']}"
+  end
+end
