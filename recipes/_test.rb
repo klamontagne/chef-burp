@@ -23,7 +23,28 @@ file '/var/backups/hello' do
 end
 
 execute 'test burp client' do
-  command '/usr/sbin/burp -a l -c /etc/burp/burp.conf'
+  # Give a little time for the server to start
+  command 'sleep 2 && /usr/sbin/burp -a l -c /etc/burp/burp.conf'
   action :run
 end
 
+cron 'burp backup start' do
+  hour 17
+  minute 0
+  command '/sbin/start burp'
+  user 'root'
+end
+
+cron 'burp backup stop' do
+  hour 6
+  minute 0
+  command '/sbin/stop burp'
+  user 'root'
+end
+
+template '/etc/init/burp.conf' do
+  source 'client/upstart.burp.erb'
+  owner 'root'
+  group 'root'
+  mode 0644
+end

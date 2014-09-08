@@ -1,0 +1,20 @@
+description     "BURP client"
+author          "Kevin Lamontagne <kevin@demarque.com>"
+
+respawn
+respawn limit unlimited
+normal exit 0
+
+umask 007
+
+kill timeout 30
+
+console log
+
+chdir /
+script
+  until /usr/sbin/burp -a t
+  do
+    sleep 5m
+  done
+end script

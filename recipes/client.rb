@@ -7,3 +7,25 @@ burp_client node['fqdn'] do
   server node['burp']['server'] || '127.0.0.1' # TODO: search for server
   password node['burp']['password']
 end
+
+cron 'burp backup start' do
+  hour 17
+  minute 0
+  # Don't stampede the server at 17:00:00
+  command 'sleep $(( RANDOM \% 30)) && /sbin/start burp'
+  user 'root'
+end
+
+cron 'burp backup stop' do
+  hour 6
+  minute 0
+  command '/sbin/stop burp'
+  user 'root'
+end
+
+template '/etc/init/burp.conf' do
+  source 'client/upstart.burp.erb'
+  owner 'root'
+  group 'root'
+  mode 0644
+end

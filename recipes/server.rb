@@ -61,20 +61,6 @@ directory '/var/spool/burp' do
   mode 0750
 end
 
-execute 'generate burp server certificates' do
-  cwd '/etc/burp-server'
-  user 'burp'
-  group 'burp'
-  command '/usr/sbin/burp -F -c /etc/burp-server/burp.conf -g'
-  not_if { ::File.exist? '/etc/burp-server/crypto/CA/burpserver.key' }
-end
-
-service 'burp-server' do
-  provider Chef::Provider::Service::Upstart
-  supports status: true, restart: true, reload: false
-  action :start
-end
-
 # Search for clients
 # partial_search requires:
 # - Chef Server >= 11.0.4
@@ -106,4 +92,10 @@ clients.each do |client|
     mode 0640
     content "password=#{client['password']}\ndedup_group=#{client['name']}"
   end
+end
+
+service 'burp-server' do
+  provider Chef::Provider::Service::Upstart
+  supports status: true, restart: true, reload: false
+  action :start
 end
