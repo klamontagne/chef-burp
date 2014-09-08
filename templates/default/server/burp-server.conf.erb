@@ -45,7 +45,7 @@ ssl_dhfile = /etc/burp-server/crypto/dhfile.pem
 timer_script = /etc/burp-server/timer_script
 timer_arg = 22h
 
-notify_success_script = /etc/burp/notify_script
+notify_success_script = /etc/burp-server/notify_script
 notify_success_arg = sendmail -t
 notify_success_arg = To: youremail@example.com
 notify_success_arg = From: burp
@@ -53,23 +53,8 @@ notify_success_arg = Subject: %b OK: %c %w
 notify_success_warnings_only = 0
 notify_success_changes_only = 0
 
-notify_failure_script = /etc/burp/notify_script
+notify_failure_script = /etc/burp-server/notify_script
 notify_failure_arg = sendmail -t
 notify_failure_arg = To: youremail@example.com
 notify_failure_arg = From: burp
 notify_failure_arg = Subject: %b failed: %c %w
-
-#server_script_pre = /etc/burp-server/pre.sh
-#server_script_pre_arg = /etc/burp/crl
-#server_script_pre_notify = 1
-#server_script_post = 
-#server_script_post_arg = 
-#server_script_post_run_on_fail=0
-#server_script_post_notify = 1
-
-# restore_client = someclient
-# restore_client = someotherclient
-
-# . path/to/more/conf
-
-
