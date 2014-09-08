@@ -55,12 +55,6 @@ template '/etc/init/burp-server.conf' do
   mode 0644
 end
 
-directory '/run/burp' do
-  owner 'burp'
-  group 'root'
-  mode 0775
-end
-
 directory '/var/spool/burp' do
   owner 'burp'
   group 'burp'
