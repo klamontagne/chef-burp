@@ -44,6 +44,8 @@ ssl_dhfile = /etc/burp-server/crypto/dhfile.pem
 
 timer_script = /etc/burp-server/timer_script
 timer_arg = 22h
+# Any day, 17h00-06h59
+timer_arg = Mon,Tue,Wed,Thu,Fri,Sat,Sun,00,01,02,03,04,05,06,17,18,19,20,21,22,23
 
 notify_success_script = /etc/burp-server/notify_script
 notify_success_arg = sendmail -t
