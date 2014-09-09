@@ -65,7 +65,7 @@ end
 # partial_search requires:
 # - Chef Server >= 11.0.4
 # - Chef Client >= 11.10.0 or the partial_search cookbook
-if Chef::Config[:solo]
+if Chef::Config[:solo] && !node['burp']['chefspec']
   Chef::Log.info('Not searching for clients under chef-solo')
   clients = {}
 else
@@ -90,7 +90,7 @@ clients.each do |client|
     owner 'burp'
     group 'burp'
     mode 0640
-    content "password=#{client['password']}\ndedup_group=#{client['name']}"
+    content "password = #{client['password']}\ndedup_group = #{client['name']}"
   end
 end
 
