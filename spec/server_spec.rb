@@ -4,7 +4,7 @@ require 'chefspec/berkshelf'
 describe 'burp::server' do
 
   it 'creates a proper client config in clientconfdir/' do
-    Chef::Recipe.any_instance.stub(:partial_search).with(
+    allow_any_instance_of(Chef::Recipe).to receive(:partial_search).with(
         :node, 'recipes:burp\:\:client AND burp_server:myserver.example.com ',
         keys: { 'name' => %w(fqdn), 'password' => %w(burp password) }
       ).and_return(
