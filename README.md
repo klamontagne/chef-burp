@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/klamontagne/chef-burp.svg?branch=master)](https://travis-ci.org/klamontagne/chef-burp)
+
 # Description
 
 Installs & configures a [BURP](http://burp.grke.org/) backup server and
