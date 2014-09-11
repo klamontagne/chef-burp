@@ -1,0 +1,11 @@
+language: ruby
+rvm:
+- 1.9.3
+before_install:
+- sudo apt-get update
+- sudo apt-get install build-essential
+install:
+- bundle install --path vendor --binstubs
+script:
+- bin/berks install
+- bundle exec rspec

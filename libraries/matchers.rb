@@ -1,4 +1,4 @@
- 
+# Let chefspec be able to create a stub burp_client
 if defined?(ChefSpec)
   ChefSpec::Runner.define_runner_method(:create_burp_client)
  

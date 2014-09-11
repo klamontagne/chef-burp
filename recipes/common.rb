@@ -1,4 +1,14 @@
 
+#<
+# Retrieve burp [from Github](https://github.com/grke/burp), compile and install the binaries.
+# Also installs build dependencies
+# *librsync-dev*,
+# *libz-dev*,
+# *libssl-dev*,
+# *uthash-dev*.
+#>
+
+
 include_recipe 'apt'
 include_recipe 'build-essential'
 include_recipe 'git'

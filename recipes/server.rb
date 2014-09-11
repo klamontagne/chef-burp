@@ -1,3 +1,9 @@
+#<
+# Install BURP and setup a server configuration in /etc/burp-server.
+# Searches for clients and installs an individual config file for each one in
+# */etc/burp-server/clientconfdir*.
+#>
+
 include_recipe 'burp::common'
 
 user 'burp' do

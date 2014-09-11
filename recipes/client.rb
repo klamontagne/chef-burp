@@ -1,3 +1,13 @@
+
+#<
+# Install BURP and setup a client configuration with a random password.
+# Sets the server to the content of ```node['burp']['server']```.
+# Set this attribute in a
+# [wrapper cookbook](http://www.getchef.com/blog/2013/12/03/doing-wrapper-cookbooks-right/),
+# or in an environment, for example.
+#>
+
+
 include_recipe 'burp::common'
 
 require 'securerandom'
