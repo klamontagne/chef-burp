@@ -7,7 +7,6 @@
 # or in an environment, for example.
 #>
 
-
 include_recipe 'burp::common'
 
 require 'securerandom'

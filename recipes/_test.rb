@@ -48,3 +48,15 @@ template '/etc/init/burp.conf' do
   group 'root'
   mode 0644
 end
+
+burp_plugin 'specplugin' do
+  cookbook 'burp'
+  pre_template 'client/test_script.erb'
+  post_template 'client/test_script.erb'
+end
+
+burp_plugin 'nilplugin' do
+  cookbook 'burp'
+  pre_template nil
+  post_template nil
+end

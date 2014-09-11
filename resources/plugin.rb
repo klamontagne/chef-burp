@@ -38,10 +38,10 @@ attribute :cookbook, kind_of: String, required: true
 # status, the backup is interrupted. Can be ```nil``` if no script is to be
 # installed.
 #>
-attribute :pre_template, kind_of: [String, NilClass], default: 'pre_backup.sh'
+attribute :pre_template, kind_of: [String, NilClass]
 #<
 # The script to run after the backup completes. If it exits with a non-zero
 # status, the other plugins **will still run**. Can be ```nil``` if no script is
 # to be installed.
 #>
-attribute :post_template, kind_of: [String, NilClass], default: 'post_backup.sh'
+attribute :post_template, kind_of: [String, NilClass]
