@@ -121,7 +121,7 @@ installed.
 - post_template: The script to run after the backup completes. If it exits with a non-zero
 status, the other plugins **will still run**. Can be ```nil``` if no script is
 to be installed. Defaults to ```'post_backup.sh'```
-
+- variables: An optional set of variables to pass through to the underlying template resources.
 Examples:
 
 ```ruby
@@ -135,6 +135,7 @@ burp_plugin 'mysql' do
   cookbook 'mycompany-mysql'
   pre_template 'dump.sh'
   post_template nil
+  variables( a: 'b', c: 9)
 end
 ```
 

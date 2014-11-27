@@ -45,3 +45,8 @@ attribute :pre_template, kind_of: [String, NilClass]
 # to be installed.
 #>
 attribute :post_template, kind_of: [String, NilClass]
+
+#<
+# An optional set of variables to pass through to the underlying template resources.
+#>
+attribute :variables, kind_of: Hash, default: {}

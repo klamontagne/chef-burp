@@ -12,6 +12,7 @@ action :create do
       owner 'root'
       group 'root'
       mode 0750 # May be sensitive e.g. passwords
+      variables new_resource.variables
     end
   end
   if new_resource.post_template
@@ -21,6 +22,7 @@ action :create do
       owner 'root'
       group 'root'
       mode 0750 # May be sensitive e.g. passwords
+      variables new_resource.variables
     end
   end
 end
