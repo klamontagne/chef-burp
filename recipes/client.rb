@@ -21,14 +21,14 @@ cron 'burp backup start' do
   hour 17
   minute 0
   # Don't stampede the server at 17:00:00
-  command 'sleep $(( RANDOM \% 30)) && /sbin/start burp'
+  command 'sleep $(( RANDOM \% 30)) && /sbin/start burp >/dev/null'
   user 'root'
 end
 
 cron 'burp backup stop' do
   hour 6
   minute 0
-  command '/sbin/stop burp'
+  command '/sbin/stop burp >/dev/null 2>/dev/null'
   user 'root'
 end
 
