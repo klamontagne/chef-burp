@@ -24,7 +24,7 @@ end
 
 execute 'test burp client' do
   # Give a little time for the server to start
-  command 'sleep 2 && /usr/sbin/burp -a l -c /etc/burp/burp.conf'
+  command 'sleep 10 && /usr/sbin/burp -a l -c /etc/burp/burp.conf'
   action :run
 end
 
