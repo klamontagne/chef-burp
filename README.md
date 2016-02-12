@@ -53,7 +53,7 @@ Install BURP and setup a server configuration in /etc/burp-server.
 Searches for clients and installs an individual config file for each one in
 */etc/burp-server/clientconfdir*.
 
-# Definitions
+# Resources
 
 ## burp_include
 
@@ -96,8 +96,6 @@ Example:
 burp_exclude_regex '.*/bundle/.*'
 burp_exclude_regex '.*/cache/.*'
 ```
-
-# Resources
 
 ## burp_plugin
 
