@@ -10,7 +10,7 @@ describe 'burp::server' do
       ).and_return(
         [{ 'name' => 'example.com', 'password' => 'abcdefgh' }]
       )
-    runner = ChefSpec::Runner.new(platform: 'ubuntu', version: '12.04')
+    runner = ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '12.04')
     runner.node.set['burp']['chefspec'] = true
     runner.node.automatic['fqdn'] = 'myserver.example.com'
     runner.converge(described_recipe)

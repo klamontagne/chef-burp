@@ -3,7 +3,7 @@ require 'chefspec/berkshelf'
 
 describe 'burp::client' do
   let(:chef_run) do
-    runner = ChefSpec::Runner.new(step_into: ['burp_client'], platform: 'ubuntu', version: '12.04')
+    runner = ChefSpec::SoloRunner.new(step_into: ['burp_client'], platform: 'ubuntu', version: '12.04')
     runner.node.automatic['fqdn'] = 'example.com'
     runner.node.set[:burp][:password] = 'PfthgMdRVLOKiuXO/92GDNxxAr0GvrWI6TaYakvTu+Uovw=='
     runner.node.set[:burp][:server] = 'myserver.example.com'

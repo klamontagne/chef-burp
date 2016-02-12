@@ -3,7 +3,7 @@ require 'chefspec/berkshelf'
 
 describe 'burp::_test' do
   let(:chef_run) do
-    runner = ChefSpec::Runner.new(step_into: ['burp_plugin'], platform: 'ubuntu', version: '12.04')
+    runner = ChefSpec::SoloRunner.new(step_into: ['burp_plugin'], platform: 'ubuntu', version: '12.04')
     runner.converge(described_recipe)
   end
 
