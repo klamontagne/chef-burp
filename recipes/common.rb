@@ -20,7 +20,7 @@ package 'uthash-dev'
 git 'burp' do
   destination "#{Chef::Config[:file_cache_path]}/burp"
   repository 'https://github.com/grke/burp.git'
-  reference '27b069fe799b6f0af4c9641830f969255f813191'
+  reference '1e8eebac420f2b0dc29102602b7e5e437d58d5b7' # 1.4.40
   user 'root'
   group 'root'
   action :checkout
