@@ -3,10 +3,8 @@
 # Description
 
 Installs & configures a [BURP](http://burp.grke.org/) backup server and
-its clients. Adds
-[definitions](https://docs.getchef.com/essentials_cookbook_definitions.html) to
-add paths to backup or exclude, and "plugin" scripts to execute before and/or
-after a backup. (such as dumping a database)
+its clients. Adds resources to add paths to backup or exclude, and
+"plugin" scripts to execute before and/or after a backup. (such as dumping a database)
 
 
 # Requirements
