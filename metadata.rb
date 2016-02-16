@@ -10,6 +10,8 @@ add paths to backup or exclude, and "plugin" scripts to execute before and/or
 after a backup. (such as dumping a database)
 EOF
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
+source_url "https://github.com/klamontagne/chef-burp" if respond_to?(:source_url)
+issues_url "https://github.com/klamontagne/chef-burp/issues" if respond_to?(:issues_url)
 
 version '0.2.2'
 
