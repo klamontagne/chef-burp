@@ -11,7 +11,9 @@ progress_counter = 0
 network_timeout = 7200
 server_can_restore = 0
 
-cross_all_filesystems=0
+<%- @config.each_pair do |k, v| %>
+<%= "#{k} = #{v}" %>
+<%- end %>
 
 ca_burp_ca = /usr/sbin/burp_ca
 ca_csr_dir = /etc/burp/crypto
@@ -43,8 +45,6 @@ exclude_comp=tbz
 exclude_comp=tgz
 exclude_comp=z
 exclude_comp=zip
-
-atime=1
 
 <% @includes.each_value do |i| -%>
 include = <%= i %>

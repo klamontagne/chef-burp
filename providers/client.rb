@@ -41,6 +41,7 @@ action :create do
         cname: new_resource.name,
         server: new_resource.server,
         password: new_resource.password,
+        config: node['burp']['client']['config'],
         includes: node['burp']['includes'],
         excludes: node['burp']['excludes'],
         excludes_regex: node['burp']['excludes_regex']
