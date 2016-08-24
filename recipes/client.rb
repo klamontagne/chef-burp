@@ -38,4 +38,13 @@ template '/etc/init/burp.conf' do
   owner 'root'
   group 'root'
   mode 0644
+  action (node.platform_version == '14.04' ? :create : :delete)
+end
+
+template '/etc/systemd/system/burp.service' do
+  source 'client/systemd.burp.erb'
+  owner 'root'
+  group 'root'
+  mode 0644
+  action (node.platform_version == '16.04' ? :create : :delete)
 end

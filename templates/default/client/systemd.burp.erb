@@ -1,0 +1,9 @@
+[Unit]
+Description=BURP client
+
+[Service]
+Type=simple
+ExecStart=/usr/sbin/burp -a t
+Restart=on-failure
+RestartSec=5m
+RuntimeMaxSec=60m
