@@ -1,5 +1,9 @@
 sudo: false
 language: ruby
+cache:
+  bundler: true
+  directories:
+  - .berkshelf 
 rvm:
 - 2.2.2
 addons:
