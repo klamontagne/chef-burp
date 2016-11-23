@@ -11,7 +11,7 @@ long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 source_url "https://github.com/klamontagne/chef-burp" if respond_to?(:source_url)
 issues_url "https://github.com/klamontagne/chef-burp/issues" if respond_to?(:issues_url)
 
-version '0.2.5'
+version '0.2.6'
 
 supports 'ubuntu', '>= 12.04'
 

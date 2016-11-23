@@ -24,6 +24,7 @@ cron 'burp backup start' do
   # Don't stampede the server at 17:00:00
   command 'sleep $(( $RANDOM \% 30)) && /sbin/start burp >/dev/null'
   user 'root'
+  action (node.platform_version == '14.04' ? :create : :delete)
 end
 
 cron 'burp backup stop' do
@@ -31,6 +32,7 @@ cron 'burp backup stop' do
   minute 0
   command '/sbin/stop burp >/dev/null 2>/dev/null'
   user 'root'
+  action (node.platform_version == '14.04' ? :create : :delete)
 end
 
 template '/etc/init/burp.conf' do
